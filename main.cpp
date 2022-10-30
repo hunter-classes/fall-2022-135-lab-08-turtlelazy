@@ -6,6 +6,7 @@ int main(){
     task_B("image2.pgm");
     task_C("image1.pgm");
     task_D("image1.pgm");
+    task_E("inImage.pgm");
 
     return 0;
 }

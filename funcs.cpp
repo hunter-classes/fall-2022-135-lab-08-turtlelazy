@@ -27,3 +27,22 @@ void task_A(std::string input){
     // and save this new image to file "outImage.pgm"
     writeImage("taskA.pgm", out, h, w);
 }
+
+void task_B(std::string input)
+{
+    int img[MAX_H][MAX_W];
+    int h, w;
+    readImage(input, img, h, w);
+    int out[MAX_H][MAX_W];
+
+    for (int row = 0; row < h; row++)
+    {
+        for (int col = 0; col < w/2; col++)
+        {
+            out[row][col] = img[row][col];
+        }
+    }
+
+    // and save this new image to file "outImage.pgm"
+    writeImage("taskB.pgm", out, h, w);
+}

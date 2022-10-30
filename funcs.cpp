@@ -5,6 +5,7 @@
 #include <string>
 
 void scaled_pixels(int r, int w, int output[MAX_H][MAX_W], int value);
+int pixelated_value(int r, int w, int input[MAX_H][MAX_W]);
 
 void task_A(std::string input){
     int img[MAX_H][MAX_W];
@@ -128,9 +129,32 @@ void task_E(std::string input)
     writeImage("taskE.pgm", output, h * 2, w * 2);
 }
 
+void task_F(std::string input)
+{
+    int img[MAX_H][MAX_W];
+    int h, w;
+    readImage(input, img, h, w);
+    int output[MAX_H][MAX_W];
+
+    for (int row = 0; row < h/2; row++)
+    {
+        for (int col = 0; col < w/2; col++)
+        {
+            scaled_pixels(row, col, output, pixelated_value(row,col,img));
+        }
+    }
+
+    writeImage("taskF.pgm", output, h, w);
+}
+
 void scaled_pixels(int r, int w, int output[MAX_H][MAX_W], int value){
     output[r * 2][w * 2] = value;
     output[r * 2][w * 2 + 1] = value;
     output[r * 2 + 1][w * 2] = value;
     output[r * 2 + 1][w * 2 + 1] = value;
+}
+
+int pixelated_value(int r, int w, int input[MAX_H][MAX_W])
+{
+    return (input[r * 2][w * 2] + input[r * 2][w * 2 + 1] + input[r * 2 + 1][w * 2] + input[r * 2 + 1][w * 2 + 1]) / 4;
 }

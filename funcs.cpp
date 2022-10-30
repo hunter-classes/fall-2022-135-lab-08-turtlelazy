@@ -19,7 +19,6 @@ void task_A(std::string input){
     }
 
     writeImage("taskA.pgm", output, h, w);
-    std::cout << h << " " << w;
 }
 
 void task_B(std::string input)
@@ -57,9 +56,11 @@ void task_C(std::string input)
     {
         for (int col = 0; col < w; col++)
         {
-            if (col > w / 2)
+            bool col_condition = col > w / 4 && col < 3 * w / 4;
+            bool row_condition = row > h / 4 && row < 3 * h / 4;
+            if (col_condition && row_condition)
             {
-                output[row][col] = 255 - img[row][col];
+                output[row][col] = 255;
             }
             else
             {
@@ -69,5 +70,5 @@ void task_C(std::string input)
     }
 
     // and save this new image to file "outImage.pgm"
-    writeImage("taskB.pgm", output, h, w);
+    writeImage("taskC.pgm", output, h, w);
 }

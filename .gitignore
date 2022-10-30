@@ -2,6 +2,5 @@
 *.out
 main
 sample
-taskA.pgm
-taskB.pgm
+task*
 .vscode

@@ -1,0 +1,6 @@
+*.o
+*.out
+main
+sample
+taskA.pgm
+.vscode

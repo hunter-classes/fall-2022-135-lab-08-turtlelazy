@@ -7,7 +7,7 @@
 * GitHub username: turtlelazy
 
 * Notes:
-
+The file, inImage.pgm is used for scale and pixelate
 
 * General instructions:
 - Fill in your name and GitHub username on top.
